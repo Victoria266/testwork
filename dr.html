@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 С Днём Рождения Вова!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffebee;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background: #e91e63;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="step1">
+        <h1>🎁 Тебе подарок!</h1>
+        <p>Нажми на кнопку, чтобы открыть открытку</p>
+        <button onclick="nextStep()">Открыть</button>
+    </div>
+
+    <div class="card hidden" id="step2">
+        <h1>🎉 У тебя день рождения?</h1>
+        <button onclick="yesBirthday()">Да! 🥳</button>
+        <button onclick="noBirthday()">Нет 😅</button>
+    </div>
+
+    <div class="card hidden" id="step3">
+        <h1>С Днём Рождения Вован! 🎂</h1>
+        <p>Вот твой подарок:</p>
+        <!-- Замени src на свою картинку -->
+        <img src="https://avatars.mds.yandex.net/i?id=7a458dbc6e0e37803402357dbe278bdd_l-5329169-images-thumbs&n=13" alt="Подарок">
+        <p>Пусть этот день будет самым счастливым!</p>
+    </div>
+
+    <script>
+        function nextStep() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+
+        function yesBirthday() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+        }
+
+        function noBirthday() {
+            // Можно вернуть на шаг 1 или обновить страницу
+            window.location.href = window.location.href; // Перезагрузка
+            // Или вернуть на первый шаг:
+            // document.getElementById('step2').classList.add('hidden');
+            // document.getElementById('step1').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
